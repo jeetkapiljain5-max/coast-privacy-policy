@@ -240,6 +240,470 @@
   <header>
     <span class="eyebrow">Coast</span>
     <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 18 August 2026</p>
+  </header>
+
+  <main>
+
+    <h2>The short version</h2>
+
+    <div class="lead">
+      <p class="headline">Coast records your rides on your phone, and that is where they stay.</p>
+      <p>Your GPS track and motion sensor readings are written to a database and to CSV files
+      in the app's private storage on your device. The app never uploads them. There is no
+      Coast account, no login, and no server of ours holding your rides. If you want a ride
+      log somewhere else, you export it yourself with the share sheet. If you uninstall
+      Coast, every ride goes with it.</p>
+    </div>
+    <p>The rest of this page explains that in detail, and is honest about the few things that
+    do leave your phone — map tiles, purchases, and push notifications.</p>
+
+    <hr>
+
+    <h2>What Coast collects, and when</h2>
+
+    <h3>Location</h3>
+    <p>While a ride is running, Coast records your GPS location to draw your route and
+    calculate distance, speed, and other ride statistics.</p>
+    <ul>
+      <li>Recording only happens <strong>during a ride you explicitly started</strong>. It
+      begins when you start a ride and stops when you stop it.</li>
+      <li>Outside a ride, Coast reads your location <strong>once, when you open the Ride
+      screen</strong>, purely to centre the map where you are. That single reading is not
+      recorded or stored, and it is only taken if you have already granted location
+      permission — opening the app never triggers a permission prompt on its own.</li>
+      <li>Coast is <strong>foreground only</strong>. The app does not request Android's
+      background location permission, so it cannot track you when you are not actively using
+      it on an open ride.</li>
+      <li>Location data is written straight to local storage on your device.</li>
+    </ul>
+
+    <h3>Motion sensors</h3>
+    <p>During a ride, Coast also reads your phone's motion sensors (accelerometer and
+    gyroscope) to understand how the ride is going — acceleration, braking, cornering, and
+    similar. Same rules as location: only during a ride, only stored on the device.</p>
+
+    <h3>What Coast does not collect</h3>
+    <ul class="nope">
+      <li>No name, no email address, no phone number.</li>
+      <li>No account, no password, no sign-in of any kind.</li>
+      <li>No contacts, photos, microphone, or camera access.</li>
+      <li>No advertising SDKs.</li>
+      <li>No tracking of you across other apps or websites.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Where your ride data lives</h2>
+    <p>All ride data is stored <strong>only on your device</strong>, in two places inside the
+    app's private storage:</p>
+    <ul>
+      <li>A local SQLite database of your rides and their statistics.</li>
+      <li>CSV files, one per ride, holding the recorded data points.</li>
+    </ul>
+    <p>App-private storage is not readable by other apps on your phone. Coast does not upload
+    this data anywhere, and it is not backed up to any server we control.</p>
+    <p>Coast also switches off Android's automatic backup. Many apps let Android copy their
+    data to your Google Drive in the background; Coast opts out of both cloud backup and
+    device-to-device transfer, so your rides are not silently duplicated off the phone. The
+    trade-off is deliberate: if you move to a new phone or reinstall the app, your ride
+    history does not come with you. Export anything you want to keep first.</p>
+
+    <h3>Exporting your rides</h3>
+    <p>Settings contains a developer section &mdash; revealed by tapping the version row
+    seven times &mdash; with an export option that hands your raw ride CSVs to Android's
+    system share sheet, so you can send them to yourself or to another app.</p>
+    <p>This is entirely user-initiated. Nothing is shared unless you tap export and then
+    choose a destination. Once you share a file with another app or service, that data is in
+    their hands and this policy no longer covers it — their privacy policy does.</p>
+
+    <hr>
+
+    <h2>Services Coast connects to</h2>
+    <p>Coast is not fully offline. Here is every third party the app talks to and exactly what
+    they get.</p>
+
+    <div class="service">
+      <h3>RevenueCat — purchases and subscriptions</h3>
+      <span class="gets">receives: anonymous app user ID + purchase data</span>
+      <p>Coast uses RevenueCat to manage in-app purchases and subscription status. RevenueCat
+      receives an <strong>anonymous app user ID</strong> generated for your install, along with
+      purchase and transaction data (what was bought, when, and whether it is still active). It
+      does not receive your rides, your location, or your identity. RevenueCat is contacted on
+      every launch to check your subscription status, whether or not you have ever bought
+      anything.</p>
+      <p>Privacy policy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">revenuecat.com/privacy</a></p>
+    </div>
+
+    <div class="service">
+      <h3>Google Play Billing — payments</h3>
+      <span class="gets">receives: your payment details, never shared with us</span>
+      <p>Payments are handled entirely by Google Play Billing. Your card and payment details go
+      to Google, never to Coast. The developer never sees your payment information.</p>
+    </div>
+
+    <div class="service">
+      <h3>OneSignal — push notifications</h3>
+      <span class="gets">receives: push token + subscription ID + five profile labels + ride and purchase events</span>
+      <p>If — and only if — you accept the notification opt-in, Coast uses OneSignal to deliver
+      push notifications. Until you accept it, OneSignal is held behind a consent gate and
+      collects nothing at all.</p>
+      <p>Once you accept, OneSignal receives a <strong>device push token</strong>, an
+      <strong>anonymous subscription ID</strong>, and five labels used to make messages
+      relevant:</p>
+      <ul>
+        <li>your <strong>most recent ride score</strong></li>
+        <li>your <strong>total number of rides</strong></li>
+        <li><strong>how many of those rides could be scored</strong> — a very short or poorly
+        tracked ride cannot be</li>
+        <li><strong>which direction your scores are moving</strong> — improving, steady or
+        slipping</li>
+        <li><strong>which vehicle type</strong> you selected</li>
+      </ul>
+      <p>Coast also reports a short list of <strong>events</strong> to OneSignal, so it can
+      tell whether a message actually led to anything rather than only that it was
+      delivered: that you recorded a ride, that you opened the Trends screen, and that you
+      bought Coast Pro. Two of them carry a number as well &mdash; the score of the ride you
+      just finished, and the price you paid.</p>
+      <p>Each label is a single number or word, and each event is a name plus at most one
+      number. OneSignal never receives your routes, your location, your ride history, or your
+      raw sensor data.</p>
+      <p>If you decline, or turn notifications off later in your system settings, none of this
+      applies to you and nothing is sent. Coast deliberately has no in-app notification switch:
+      your phone's own notification settings are the single place that controls this, and they
+      let you silence ride scores while keeping the alert that tells you a ride stopped
+      recording.</p>
+      <p>Privacy policy: <a href="https://onesignal.com/privacy_policy" target="_blank" rel="noopener noreferrer">onesignal.com/privacy_policy</a></p>
+    </div>
+
+    <div class="service">
+      <h3>Google Play Services / Firebase Cloud Messaging</h3>
+      <span class="gets">receives: the notification, in transit</span>
+      <p>Firebase Cloud Messaging is the transport Android uses to actually deliver a push
+      notification to your device. It carries the notification; it does not receive your ride
+      data.</p>
+    </div>
+    <div class="service">
+      <h3>CARTO and OpenStreetMap — map tiles</h3>
+      <span class="gets">receives: approximate viewing area + IP address</span>
+      <p>The map you see is made of tile images requested from CARTO's servers, built on
+      OpenStreetMap data. Like any app that shows a map, those requests necessarily reveal
+      <strong>the approximate area you are looking at</strong> and <strong>your IP
+      address</strong> to the tile server.</p>
+      <p>This is a normal consequence of loading map images from the internet, and it is the one
+      place where something location-adjacent leaves your phone. It is the map view you are
+      looking at, not your recorded ride track — your actual GPS log is never sent to them.</p>
+      <p>Map data is © OpenStreetMap contributors; tiles are © CARTO.</p>
+    </div>
+
+    <hr>
+
+    <h2>Data retention</h2>
+    <p>Coast keeps your rides on your device until you delete them. There is no expiry and no
+    cleanup on our side, because there is no our side — we do not hold a copy.</p>
+    <p><strong>Uninstalling Coast deletes all ride data</strong>, including the local database
+    and every CSV file, because Android removes the app's private storage along with the app.</p>
+    <p>Data held by the third parties above (RevenueCat's purchase records, OneSignal's push
+    subscription) is retained according to their own policies, linked in each section.</p>
+
+    <hr>
+
+    <h2>Your rights and how to exercise them</h2>
+    <p>Because your data is on your device and not on a server, you do not need to ask anyone's
+    permission to control it:</p>
+    <ul>
+      <li><strong>Access it</strong> &mdash; open the app to view your rides, or export the
+      raw CSV files from the developer section in Settings.</li>
+      <li><strong>Delete it</strong> &mdash; open any ride from History and use
+      <strong>Delete this ride</strong> to remove it and its raw sensor log, use
+      <strong>Settings &rarr; Delete all rides</strong> to erase every ride and log at
+      once, or uninstall Coast to remove everything.</li>
+      <li><strong>Stop collection</strong> — do not start a ride, or revoke the location
+      permission in your Android settings. Coast cannot record without it.</li>
+      <li><strong>Stop notifications</strong> — turn off notification permission for Coast in
+      your Android settings.</li>
+    </ul>
+    <p>Depending on where you live, you may have additional rights under laws such as the GDPR
+    or CCPA — for example the right to access, correct, or delete personal data held about you.
+    In practice we hold none, so those requests are answered by your own device. For anything
+    relating to purchase records, contact us at the address below and we will help you reach
+    the relevant processor.</p>
+
+    <hr>
+
+    <h2>Children's privacy</h2>
+    <p>Coast is not directed at children under 13, and we do not knowingly collect personal
+    information from children under 13. If you believe a child has used the app in a way that
+    concerns you, note that any data recorded is on that child's device and can be removed by
+    deleting the rides or uninstalling the app. You are welcome to contact us with questions.</p>
+
+    <hr>
+
+    <h2>Changes to this policy</h2>
+    <p>If Coast changes what it collects or which services it uses, this policy will be updated
+    and the "Last updated" date at the top will change. Material changes will be noted in the
+    app release notes. Continuing to use Coast after an update means you accept the revised
+    policy.</p>
+
+    <hr>
+
+    <h2>Contact</h2>
+    <div class="contact">
+      <p style="margin-bottom:0.25rem;">Questions about this policy or about privacy in Coast:</p>
+      <a class="email" href="mailto:jeetkapiljain5@gmail.com">jeetkapiljain5@gmail.com</a>
+    </div>
+
+  </main>
+
+  <footer>
+    Coast — ride coaching for scooters and cars.
+  </footer>
+
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Coast</title>
+<meta name="description" content="Coast records your rides on your phone, and that is where they stay. The full privacy policy for the Coast ride coaching app.">
+<meta name="color-scheme" content="dark">
+<style>
+  :root {
+    --bg: #0F1922;
+    --surface: #16232E;
+    --surface-2: #1B2B38;
+    --line: #24384A;
+    --text: #FFFFFF;
+    --muted: #A7BACB;
+    --accent: #22D3EE;
+    --accent-dim: rgba(34, 211, 238, 0.12);
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji";
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+            "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  header {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+  }
+
+  .updated {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 4vw, 1.6rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+    margin: 3.5rem 0 1rem;
+    padding-top: 0.25rem;
+  }
+
+  h3 {
+    font-size: 1.075rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin: 2.25rem 0 0.6rem;
+    color: var(--accent);
+  }
+
+  p { margin: 0 0 1.15rem; }
+
+  ul {
+    margin: 0 0 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  li {
+    margin-bottom: 0.55rem;
+    padding-left: 0.2rem;
+  }
+
+  li::marker { color: var(--accent); }
+
+  strong { font-weight: 600; }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(34, 211, 238, 0.35);
+    overflow-wrap: anywhere;
+  }
+
+  a:hover,
+  a:focus-visible {
+    border-bottom-color: var(--accent);
+    background: var(--accent-dim);
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 3.5rem 0 0;
+  }
+
+  .lead {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.75rem 1.75rem 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .lead .headline {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1.1rem;
+  }
+
+  .lead p:last-child { margin-bottom: 1.15rem; }
+
+  .nope {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+  }
+
+  .nope li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--muted);
+  }
+
+  .nope li::before {
+    content: "×";
+    position: absolute;
+    left: 0.35rem;
+    top: -0.05rem;
+    color: var(--accent);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .service {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.35rem 1.5rem 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .service h3 {
+    margin-top: 0;
+  }
+
+  .service .gets {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .contact {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+
+  .email {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px dashed rgba(34, 211, 238, 0.5);
+    border-radius: 8px;
+    padding: 0.6rem 1.1rem;
+    margin-top: 0.5rem;
+    overflow-wrap: anywhere;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .wrap { padding: 2.5rem 1.15rem 4rem; }
+    .lead, .service, .contact { padding-left: 1.15rem; padding-right: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Coast</span>
+    <h1>Privacy Policy</h1>
     <p class="updated">Last updated: 17 August 2026</p>
   </header>
 
