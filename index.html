@@ -240,7 +240,7 @@
   <header>
     <span class="eyebrow">Coast</span>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 14 August 2026</p>
+    <p class="updated">Last updated: 17 August 2026</p>
   </header>
 
   <main>
@@ -344,17 +344,29 @@
 
     <div class="service">
       <h3>OneSignal — push notifications</h3>
-      <span class="gets">receives: push token + your latest score and ride count</span>
+      <span class="gets">receives: push token + five labels about your scores</span>
       <p>If — and only if — you accept the notification opt-in, Coast uses OneSignal to deliver
       push notifications. Until you accept it, OneSignal is held behind a consent gate and
       collects nothing at all.</p>
       <p>Once you accept, OneSignal receives a <strong>device push token</strong>, an
-      <strong>anonymous subscription ID</strong>, and three labels used to make messages
-      relevant: your <strong>most recent ride score</strong>, your <strong>total number of
-      rides</strong>, and <strong>which vehicle type</strong> you selected. It never receives
-      your routes, your location, or your raw ride data.</p>
+      <strong>anonymous subscription ID</strong>, and five labels used to make messages
+      relevant:</p>
+      <ul>
+        <li>your <strong>most recent ride score</strong></li>
+        <li>your <strong>total number of rides</strong></li>
+        <li><strong>how many of those rides could be scored</strong> — a very short or poorly
+        tracked ride cannot be</li>
+        <li><strong>which direction your scores are moving</strong> — improving, steady or
+        slipping</li>
+        <li><strong>which vehicle type</strong> you selected</li>
+      </ul>
+      <p>Each of these is a single number or word. OneSignal never receives your routes, your
+      location, your ride history, or your raw sensor data.</p>
       <p>If you decline, or turn notifications off later in your system settings, none of this
-      applies to you and nothing is sent.</p>
+      applies to you and nothing is sent. Coast deliberately has no in-app notification switch:
+      your phone's own notification settings are the single place that controls this, and they
+      let you silence ride scores while keeping the alert that tells you a ride stopped
+      recording.</p>
       <p>Privacy policy: <a href="https://onesignal.com/privacy_policy" target="_blank" rel="noopener noreferrer">onesignal.com/privacy_policy</a></p>
     </div>
 
@@ -437,7 +449,7 @@
   </main>
 
   <footer>
-    Coast — ride coaching for electric two-wheelers and bicycles.
+    Coast — ride coaching for scooters and cars.
   </footer>
 
 </div>
