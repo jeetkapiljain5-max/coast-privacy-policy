@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Coast</title>
-<meta name="description" content="Coast records your rides on your phone, and that is where they stay. The full privacy policy for the Coast ride coaching app.">
+<meta name="description" content="Coast records your rides on your phone. There is no Coast account and no server of ours. The full privacy policy for the Coast ride coaching app.">
 <meta name="color-scheme" content="dark">
 <style>
   :root {
@@ -248,15 +248,22 @@
     <h2>The short version</h2>
 
     <div class="lead">
-      <p class="headline">Coast records your rides on your phone, and that is where they stay.</p>
+      <p class="headline">Coast records your rides on your phone. There is no Coast account
+      and no server of ours — your rides are never sent to us.</p>
       <p>Your GPS track and motion sensor readings are written to a database and to CSV files
-      in the app's private storage on your device. The app never uploads them. There is no
-      Coast account, no login, and no server of ours holding your rides. If you want a ride
-      log somewhere else, you export it yourself with the share sheet. If you uninstall
-      Coast, every ride goes with it.</p>
+      in the app's own private storage on your device. The app never uploads them. There is
+      no login, and nothing of ours holds a copy. If you want a ride log somewhere else, you
+      export it yourself with the share sheet.</p>
+      <p>One caveat we would rather state plainly than bury: <strong>on iPhone</strong>,
+      Coast's rides sit in the app's Documents folder, which Apple includes in your device
+      backup. If you have iCloud Backup switched on, a copy of your rides is in that backup.
+      It is your backup, it goes to your Apple account, and we never receive it and cannot
+      read it. <strong>On Android</strong>, Coast switches backup off entirely, so nothing is
+      copied off the phone. Both cases are explained below.</p>
     </div>
-    <p>The rest of this page explains that in detail, and is honest about the few things that
-    do leave your phone — map tiles, purchases, and push notifications.</p>
+
+    <p>The rest of this page explains all of that in detail, and is honest about the few
+    things that do leave your phone — map tiles, purchases, and push notifications.</p>
 
     <hr>
 
@@ -268,14 +275,15 @@
     <ul>
       <li>Recording only happens <strong>during a ride you explicitly started</strong>. It
       begins when you start a ride and stops when you stop it.</li>
-      <li>Outside a ride, Coast reads your last known location <strong>when the app starts
-      and when you open the Ride screen</strong>, purely to centre the map where you are.
-      Those readings are not recorded or stored, and they are only taken if you have
-      already granted location permission. Opening the app never triggers a permission
-      prompt on its own.</li>
-      <li>Coast is <strong>foreground only</strong>. The app does not request Android's
-      background location permission, so it cannot track you when you are not actively using
-      it on an open ride.</li>
+      <li>Outside a ride, Coast takes a location reading <strong>when the app starts and when
+      you open the Ride screen</strong>, purely to centre the map where you are — first
+      whatever position your phone already has cached, then a fresh fix. Those readings are
+      not recorded or stored, and they are only taken if you have already granted location
+      permission. Opening the app never triggers a permission prompt on its own.</li>
+      <li>Coast is <strong>foreground only</strong>. It never asks for background or
+      &ldquo;Always&rdquo; location: on Android it does not declare the background location
+      permission, and on iPhone it asks only for &ldquo;While Using the App&rdquo;. If Coast
+      leaves the foreground, the ride stops recording and tells you that it did.</li>
       <li>Location data is written straight to local storage on your device.</li>
     </ul>
 
@@ -297,22 +305,34 @@
 
     <h2>Where your ride data lives</h2>
     <p>All ride data is stored <strong>only on your device</strong>, in two places inside the
-    app's private storage:</p>
+    app's own private storage:</p>
     <ul>
       <li>A local SQLite database of your rides and their statistics.</li>
       <li>CSV files, one per ride, holding the recorded data points.</li>
     </ul>
-    <p>App-private storage is not readable by other apps on your phone. Coast does not upload
-    this data anywhere, and it is not backed up to any server we control.</p>
-    <p>Coast also switches off Android's automatic backup. Many apps let Android copy their
-    data to your Google Drive in the background; Coast opts out of both cloud backup and
-    device-to-device transfer, so your rides are not silently duplicated off the phone. The
-    trade-off is deliberate: if you move to a new phone or reinstall the app, your ride
-    history does not come with you. Export anything you want to keep first.</p>
+    <p>That storage is sandboxed — other apps on your phone cannot read it — and Coast never
+    uploads it. There is no server of ours holding a copy.</p>
+
+    <h3>Backups: this part genuinely differs by phone</h3>
+    <p><strong>On Android</strong>, Coast switches automatic backup off. Many apps let Android
+    copy their data to your Google Drive in the background; Coast opts out of both cloud
+    backup and device-to-device transfer, so your rides are not silently duplicated off the
+    phone. The trade-off is deliberate: if you move to a new phone or reinstall the app, your
+    ride history does not come with you. Export anything you want to keep first.</p>
+    <p><strong>On iPhone</strong>, we cannot honestly make that claim, so we will not. Coast's
+    ride database and CSV logs live in the app's own Documents folder, and Apple includes that
+    folder in your device backup. With iCloud Backup switched on — which is the default — a
+    copy of your rides forms part of that backup, the same as most apps' data. The same
+    applies to a backup you make to your own computer.</p>
+    <p>That backup is yours, not ours. It goes to your Apple account under Apple's privacy
+    policy rather than this one; we never receive it, and we could not read it if we wanted
+    to. If you would rather your rides were not included in your iCloud backup, switch Coast
+    off under <strong>Settings &rarr; [your name] &rarr; iCloud &rarr; Manage Account Storage
+    &rarr; Backups</strong>, or turn iCloud Backup off.</p>
 
     <h3>Exporting your rides</h3>
     <p>Settings contains a developer section &mdash; revealed by tapping the version row
-    seven times &mdash; with an export option that hands your raw ride CSVs to Android's
+    seven times &mdash; with an export option that hands your raw ride CSVs to your phone's
     system share sheet, so you can send them to yourself or to another app.</p>
     <p>This is entirely user-initiated. Nothing is shared unless you tap export and then
     choose a destination. Once you share a file with another app or service, that data is in
@@ -323,29 +343,46 @@
     <h2>Services Coast connects to</h2>
     <p>Coast is not fully offline. Here is every third party the app talks to and exactly what
     they get.</p>
+    <p>The lists below name everything Coast itself chooses to send. Two of these services —
+    RevenueCat and OneSignal — are software kits that run inside the app, and like almost every
+    such kit they attach ordinary technical metadata of their own to the requests they make:
+    typically your device model, its operating system version, the app and kit version, your
+    language and your time zone. Every internet request also carries your device's IP address,
+    from which a service can work out roughly what country you are in. We do not choose to send
+    any of that, and we cannot switch it off; it comes with using their service at all. We
+    require each of these companies to protect what they receive to at least the standard
+    described in this policy, and to use it only to provide their service to Coast.
+    <strong>None of them receives your routes, your ride history, or your raw sensor
+    data.</strong> Their own privacy policies are linked in each section.</p>
 
     <div class="service">
       <h3>RevenueCat — purchases and subscriptions</h3>
-      <span class="gets">receives: anonymous app user ID + purchase data</span>
-      <p>Coast uses RevenueCat to manage in-app purchases and subscription status. RevenueCat
-      receives an <strong>anonymous app user ID</strong> generated for your install, along with
-      purchase and transaction data (what was bought, when, and whether it is still active). It
-      does not receive your rides, your location, or your identity. RevenueCat is contacted on
-      every launch to check your subscription status, whether or not you have ever bought
-      anything.</p>
+      <span class="gets">receives: anonymous app user ID + purchase data + device metadata</span>
+      <p>Coast uses RevenueCat to manage in-app purchases and subscription status, on both
+      stores. RevenueCat receives an <strong>anonymous app user ID</strong> generated for your
+      install, along with purchase and transaction data (what was bought, when, and whether it
+      is still active), plus the device and app metadata described above. It does not receive
+      your rides, your location, or your identity, and it never sees your card details.</p>
+      <p>Where purchasing is switched on in the copy of Coast you have installed, RevenueCat is
+      contacted at launch to check your subscription status, whether or not you have ever
+      bought anything. Where it is not switched on, the kit stays dormant and RevenueCat is not
+      contacted at all.</p>
       <p>Privacy policy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">revenuecat.com/privacy</a></p>
     </div>
 
     <div class="service">
-      <h3>Google Play Billing — payments</h3>
+      <h3>Payments — Google Play and the App Store</h3>
       <span class="gets">receives: your payment details, never shared with us</span>
-      <p>Payments are handled entirely by Google Play Billing. Your card and payment details go
-      to Google, never to Coast. The developer never sees your payment information.</p>
+      <p>Coast never sees or handles your payment details. When you buy Coast Pro, the purchase
+      is processed by the store you installed Coast from: <strong>Google Play Billing</strong>
+      on Android, or <strong>Apple's App Store payment processing</strong> on iPhone. Your card
+      and billing details go to Google or to Apple, under their own privacy policies. They are
+      never sent to Coast, and never to RevenueCat.</p>
     </div>
 
     <div class="service">
       <h3>OneSignal — push notifications</h3>
-      <span class="gets">receives: push token + subscription ID + five profile labels + ride and purchase events</span>
+      <span class="gets">receives: push token + subscription ID + five profile labels + ride and purchase events + device metadata</span>
       <p>If — and only if — you accept the notification opt-in, Coast uses OneSignal to deliver
       push notifications. Until you accept it, OneSignal is held behind a consent gate and
       collects nothing at all.</p>
@@ -367,22 +404,36 @@
       bought Coast Pro. Two of them carry a number as well &mdash; the score of the ride you
       just finished, and the price you paid.</p>
       <p>Each label is a single number or word, and each event is a name plus at most one
-      number. OneSignal never receives your routes, your location, your ride history, or your
+      number. Alongside them the kit sends the device and app metadata described at the start
+      of &ldquo;Services Coast connects to&rdquo; — device model, operating system version, app
+      and kit version, language, time zone — and, as with any internet request, your IP
+      address. OneSignal never receives your routes, your location, your ride history, or your
       raw sensor data.</p>
-      <p>If you decline, or turn notifications off later in your system settings, none of this
-      applies to you and nothing is sent. Coast deliberately has no in-app notification switch:
-      your phone's own notification settings are the single place that controls this, and they
-      let you silence ride scores while keeping the alert that tells you a ride stopped
-      recording.</p>
+      <p>If you decline, or turn Coast's notifications off later in your system settings, none
+      of this applies to you and nothing is sent — Coast checks that permission and withdraws
+      consent when it sees you have turned it off. Coast deliberately has no in-app
+      notification switch: your phone's own notification settings are the single place that
+      controls this. On Android that is <strong>Settings &rarr; Apps &rarr; Coast &rarr;
+      Notifications</strong>; on iPhone, <strong>Settings &rarr; Notifications &rarr;
+      Coast</strong>.</p>
+      <p>One detail worth being precise about, because it is easy to assume otherwise. On
+      Android you will also see separate channels for Coast's own on-device alerts — the ride
+      score, and the notice that a ride stopped recording — and you can silence one while
+      keeping the other. Those are alerts Coast raises on the phone itself, with no server
+      involved. Muting one of them changes what Coast shows you; it does not withdraw consent,
+      because the consent gate follows Coast's overall notification permission. If your intent
+      is that nothing is sent, turn Coast's notifications off as a whole rather than muting a
+      single channel.</p>
       <p>Privacy policy: <a href="https://onesignal.com/privacy_policy" target="_blank" rel="noopener noreferrer">onesignal.com/privacy_policy</a></p>
     </div>
 
     <div class="service">
-      <h3>Google Play Services / Firebase Cloud Messaging</h3>
+      <h3>Push delivery — Firebase Cloud Messaging and Apple Push Notification service</h3>
       <span class="gets">receives: the notification, in transit</span>
-      <p>Firebase Cloud Messaging is the transport Android uses to actually deliver a push
-      notification to your device. It carries the notification; it does not receive your ride
-      data.</p>
+      <p>Actually delivering a notification to your phone needs the platform's own transport:
+      <strong>Firebase Cloud Messaging</strong> on Android, and <strong>Apple Push Notification
+      service (APNs)</strong> on iPhone. They carry the notification; neither receives your
+      ride data.</p>
     </div>
     <div class="service">
       <h3>CARTO and OpenStreetMap — map tiles</h3>
@@ -402,8 +453,13 @@
     <h2>Data retention</h2>
     <p>Coast keeps your rides on your device until you delete them. There is no expiry and no
     cleanup on our side, because there is no our side — we do not hold a copy.</p>
-    <p><strong>Uninstalling Coast deletes all ride data</strong>, including the local database
-    and every CSV file, because Android removes the app's private storage along with the app.</p>
+    <p><strong>Deleting Coast removes the app's storage and every ride in it</strong>,
+    including the local database and every CSV file. Two things are worth knowing on iPhone:
+    <em>Offload App</em> deliberately keeps an app's data, so it does not delete your rides;
+    and if your rides were part of an iCloud or computer backup, restoring that backup can
+    bring them back. Deleting rides inside the app removes them from the phone, but it cannot
+    reach into a backup that has already been made — that is managed in your Apple account's
+    backup settings.</p>
     <p>Data held by the third parties above (RevenueCat's purchase records, OneSignal's push
     subscription) is retained according to their own policies, linked in each section.</p>
 
@@ -419,11 +475,15 @@
       <strong>Delete this ride</strong> to remove it and its raw sensor log. On the free
       tier History shows your three most recent rides, so use <strong>Settings &rarr;
       Delete all rides</strong> to erase every ride and log at once, whether or not you
-      can open them individually. Uninstalling Coast also removes everything.</li>
+      can open them individually. Deleting the app also removes everything it holds.</li>
       <li><strong>Stop collection</strong> — do not start a ride, or revoke the location
-      permission in your Android settings. Coast cannot record without it.</li>
-      <li><strong>Stop notifications</strong> — turn off notification permission for Coast in
-      your Android settings.</li>
+      permission in your phone's settings (Android: <strong>Settings &rarr; Apps &rarr; Coast
+      &rarr; Permissions</strong>; iPhone: <strong>Settings &rarr; Coast &rarr;
+      Location</strong>). Coast cannot record without it.</li>
+      <li><strong>Stop notifications</strong> — turn Coast's notification permission off in
+      your phone's settings (Android: <strong>Settings &rarr; Apps &rarr; Coast &rarr;
+      Notifications</strong>; iPhone: <strong>Settings &rarr; Notifications &rarr;
+      Coast</strong>).</li>
     </ul>
     <p>Depending on where you live, you may have additional rights under laws such as the GDPR
     or CCPA — for example the right to access, correct, or delete personal data held about you.
