@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use — Coast</title>
+<meta name="description" content="Coast is a riding coach, not a safety device. The terms of use for the Coast ride coaching app, including what Coast Pro costs and how to cancel it.">
+<meta name="color-scheme" content="dark">
+<style>
+  :root {
+    --bg: #0F1922;
+    --surface: #16232E;
+    --surface-2: #1B2B38;
+    --line: #24384A;
+    --text: #FFFFFF;
+    --muted: #A7BACB;
+    --accent: #22D3EE;
+    --accent-dim: rgba(34, 211, 238, 0.12);
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji";
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+            "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  header {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+  }
+
+  .updated {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 4vw, 1.6rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+    margin: 3.5rem 0 1rem;
+    padding-top: 0.25rem;
+  }
+
+  h3 {
+    font-size: 1.075rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin: 2.25rem 0 0.6rem;
+    color: var(--accent);
+  }
+
+  p { margin: 0 0 1.15rem; }
+
+  ul {
+    margin: 0 0 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  li {
+    margin-bottom: 0.55rem;
+    padding-left: 0.2rem;
+  }
+
+  li::marker { color: var(--accent); }
+
+  strong { font-weight: 600; }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(34, 211, 238, 0.35);
+    overflow-wrap: anywhere;
+  }
+
+  a:hover,
+  a:focus-visible {
+    border-bottom-color: var(--accent);
+    background: var(--accent-dim);
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 3.5rem 0 0;
+  }
+
+  .lead {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.75rem 1.75rem 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .lead .headline {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1.1rem;
+  }
+
+  .lead p:last-child { margin-bottom: 1.15rem; }
+
+  .nope {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+  }
+
+  .nope li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--muted);
+  }
+
+  .nope li::before {
+    content: "×";
+    position: absolute;
+    left: 0.35rem;
+    top: -0.05rem;
+    color: var(--accent);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .service {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.35rem 1.5rem 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .service h3 {
+    margin-top: 0;
+  }
+
+  .service .gets {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .contact {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+
+  .email {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px dashed rgba(34, 211, 238, 0.5);
+    border-radius: 8px;
+    padding: 0.6rem 1.1rem;
+    margin-top: 0.5rem;
+    overflow-wrap: anywhere;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .wrap { padding: 2.5rem 1.15rem 4rem; }
+    .lead, .service, .contact { padding-left: 1.15rem; padding-right: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Coast</span>
+    <h1>Terms of Use</h1>
+    <p class="updated">Last updated: 19 August 2026</p>
+  </header>
+
+  <main>
+
+    <h2>The short version</h2>
+
+    <p>Coast is a riding coach. It records a ride on your phone, scores how smoothly you
+    rode, and shows you on a map where the rough moments were. These terms are the
+    agreement between you and us about using it.</p>
+
+    <p>Two things matter more than anything else on this page, so they are not buried at
+    the bottom.</p>
+
+    <div class="lead">
+      <p class="headline"><strong>Coast is not a safety device.</strong> It does not watch
+      the road, it does not warn you, and it cannot help you avoid a crash. It is a record
+      of a ride you have already ridden.</p>
+      <p><strong>Nothing Coast shows you is worth looking at while you are moving.</strong>
+      Set it up before you set off, then leave the phone alone. A score is never worth a
+      glance in traffic, and it is never worth a hand off the bars.</p>
+    </div>
+
+    <p>The rest of this page covers what Coast does, what you are buying if you buy Coast
+    Pro, and what we promise and deliberately do not. Using Coast means you accept these
+    terms. If you do not accept them, delete the app. What deleting it does and does not
+    remove is set out under <strong>Your rides and your data</strong> below, and in full in
+    the privacy policy.</p>
+
+    <hr>
+
+    <h2>What Coast is, and what it is not</h2>
+
+    <p>Coast records a ride you start yourself, using your phone's GPS and motion sensors,
+    and turns it into a score out of 100 based on how many hard brakes and hard launches it
+    picked up and how far you rode. Afterwards it draws your route with those moments pinned
+    where they happened, and estimates how much further the energy you braked away could
+    have carried you. You pick whether you are on a scooter or in a car, because the two
+    brake and pull away very differently.</p>
+
+    <p>The free app scores every ride and keeps every ride on your phone; History shows you
+    the three most recent. Coast Pro opens the full history you already have, and the trends
+    built from it. Nothing is deleted to make you buy &mdash; if you want older rides gone,
+    <strong>Settings &rarr; Delete all rides</strong> erases them whether or not History is
+    showing them to you.</p>
+    <p>Whatever Coast Pro includes is listed on the purchase screen in the app, and that
+    list is the one that counts.</p>
+
+    <p>What Coast is not:</p>
+    <ul class="nope">
+      <li>Not a navigation app. It never tells you where to go.</li>
+      <li>Not a speedometer you should rely on. The number comes from GPS.</li>
+      <li>Not a dashcam, a crash detector, or an emergency service.</li>
+      <li>Not a background tracker. It records only while you have a ride running and the
+      app is open in front of you.</li>
+      <li>Not a cloud service. There is no account and no server of ours, so there is
+      nothing to log into and nothing to recover.</li>
+      <li>Not a safety device. That one has its own section, and it is the next one.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Riding safely</h2>
+
+    <p>If we had to delete everything else on this page, we would keep this.</p>
+
+    <h3>Coast is a coaching aid, not a safety device</h3>
+    <p>Coast cannot see other vehicles, pedestrians, potholes, weather, or traffic lights.
+    It does not know where the road goes or what the speed limit is. It will never warn you
+    about anything in front of you, because it cannot: everything it tells you is worked out
+    afterwards, from readings your own phone took.</p>
+    <p>Do not ride as though something is watching the road for you. Nothing is.</p>
+
+    <h3>Do not touch the phone while you are moving</h3>
+    <p>Coast is built so that you never have to:</p>
+    <ul>
+      <li>Pick your vehicle and tap start <strong>before you set off</strong>, while you are
+      stationary. When you arrive, come to a stop first and stop the ride after.</li>
+      <li>Put the phone in a mount, or use <strong>Pocket Mode</strong>, which makes the
+      screen look off &mdash; black, dimmed, and deaf to every touch but the deliberate
+      unlock &mdash; so a pocket cannot press Stop. The screen is still on and the ride keeps
+      recording; Pocket Mode does not turn the display off, because a display that really
+      went off would end the ride.</li>
+      <li><strong>Coast records only while it is open in front of you.</strong> If it leaves
+      the foreground mid-ride &mdash; you switch apps, take a call, or the screen locks
+      &mdash; Coast stops the ride there, saves what you rode up to that point, and tells you
+      when you come back. It does not resume by itself. So keep Coast open for the whole
+      ride, and use Pocket Mode rather than locking the phone.</li>
+    </ul>
+    <p>The live count of rough moments on the ride screen exists so you can ease off during
+    a long ride. It is not there to be watched. If you catch yourself looking at it, that is
+    the moment to switch on Pocket Mode.</p>
+    <p>Never hold the phone in your hand while riding. On a two-wheeler that is one hand off
+    the bars, and nothing on a screen is worth that.</p>
+    <p>If you use a mount, check that it holds before you go. A phone that works loose at
+    speed is a hazard to you and to everyone behind you.</p>
+
+    <h3>The road law is yours to follow, and Coast does not know it</h3>
+    <p>You are responsible for riding legally. Coast has no knowledge of the rules where you
+    are: it never displays a speed limit, never tells you one, and has no concept of
+    licences, helmets, insurance, or who is allowed to ride what.</p>
+    <p>If the law where you ride says a phone may not be mounted, or may not be visible, or
+    may not be running while you drive, then that law wins. Do not run Coast.</p>
+
+    <h3>A score is never a reason to ride differently in traffic</h3>
+    <p>Coast judges braking and acceleration against physics, not against the situation you
+    were in. It cannot tell an emergency stop from an impatient one.</p>
+    <p>So if you have to brake hard, brake hard. Swerve. Do whatever the road needs. Coast
+    will record it as a rough moment and your score will drop, and that is the correct
+    outcome — take the points and stay upright. A ride you had to save is worth more than a
+    hundred.</p>
+    <p>Do not ride to raise a score. Do not roll gently towards a hazard to protect an
+    average. Do not treat anyone's score as something to beat on a public road.</p>
+
+    <h3>Smoother is not the same as safer</h3>
+    <p>Smooth riding is usually safer riding, which is most of the point of Coast. But
+    smoothness is the only thing Coast measures. It knows nothing about your speed, your
+    following distance, your lane position, or whether you were looking where you were
+    going. A high score means you rode gently. It does not mean you rode well, and it is not
+    permission to relax.</p>
+
+    <hr>
+
+    <h2>Scores are estimates, not measurements</h2>
+
+    <p>Every number Coast shows you is worked out from a phone strapped to a moving vehicle.
+    Treat it as a good indication, not as an instrument reading.</p>
+    <ul>
+      <li><strong>Speed and distance come from GPS</strong>, which drifts under bridges,
+      between buildings, and in bad weather. Coast is not a calibrated speedometer, and you
+      should never use its speed to decide whether you are within a limit.</li>
+      <li><strong>Hard braking and hard launching are inferred</strong> from accelerometer
+      and GPS readings crossing thresholds we chose. Where your phone sits, how rigid the
+      mount is, the road surface, and the phone model itself all change what gets detected.
+      Two phones on the same journey can score differently.</li>
+      <li><strong>The energy or fuel you wasted is a model's estimate</strong>, not a reading
+      from your vehicle. Nothing in Coast is connected to the vehicle at all.</li>
+      <li><strong>Some rides cannot be scored, and Coast says so</strong> rather than
+      guessing. A ride shorter than about 300 metres or a minute, or one where the tracking
+      was too patchy to trust, shows a dash instead of a number. Trends need five scored
+      rides before Coast will call a direction.</li>
+    </ul>
+    <p>None of this is a measurement of you as a rider, and none of it is evidence. Do not
+    use it as either.</p>
+
+    <hr>
+
+    <h2>Buying Coast Pro</h2>
+
+    <p>Coast Pro is sold as a subscription, and may also be offered as a single one-time
+    purchase. Whichever you choose, the purchase screen shows the price, the period, and
+    whether it renews, in your own currency, before you buy. That screen is the offer. These
+    terms do not override it.</p>
+
+    <p><strong>Payment goes to the store, never to us.</strong> On Android the purchase is
+    handled by Google Play; on iPhone, by Apple. Your card and billing details go to them
+    under their own terms, and Coast never sees or handles them.</p>
+
+    <p><strong>Subscriptions renew automatically</strong> until you cancel, at the price and
+    period shown when you bought. <strong>A one-time purchase does not renew</strong> and is
+    not charged again. <strong>If an offer includes a free trial or an introductory
+    price</strong>, its length and what it becomes are shown on that same purchase screen;
+    unless you cancel before it ends, it converts to the full price and renews from
+    there.</p>
+
+    <p><strong>Cancelling happens in your store account, not in Coast.</strong> We cannot
+    cancel a subscription for you and the app has no button that can. On Android, cancel
+    under <strong>Google Play &rarr; Subscriptions</strong>; on iPhone, under your
+    <strong>Apple ID</strong> subscription settings. Cancelling stops the next renewal;
+    whether Coast Pro keeps working until the end of the period you already paid for is the
+    store's rule, not ours.</p>
+
+    <p><strong>Refunds are the store's to give</strong>, under Google's or Apple's policy,
+    not ours. If you think you were charged wrongly, ask them first. You are welcome to
+    write to us as well and we will help where we can, but we cannot issue a refund
+    ourselves.</p>
+
+    <p><strong>Restoring a purchase.</strong> Coast Pro follows the store account you bought
+    it with, not the phone. Reinstalling or moving to a new phone on the same account, then
+    tapping <strong>Restore purchase</strong>, brings it back. That needs an internet
+    connection so the store can be asked.</p>
+
+    <p><strong>Codes.</strong> We sometimes hand out a code that unlocks Coast Pro without a
+    purchase — for judges, testers, and reviewers. A code unlocks the app on that device
+    only, is not a purchase, and can stop working in a later version.</p>
+
+    <hr>
+
+    <h2>Your rides and your data</h2>
+
+    <p>Your rides are yours. We make no claim on them, and we could not: they are recorded
+    on your phone, stored in the app's own private storage, and never uploaded to us. There
+    is no Coast account and no server of ours holding a copy.</p>
+
+    <p>You can delete any single ride from History, or erase everything at once with
+    <strong>Settings &rarr; Delete all rides</strong> &mdash; which reaches rides History is
+    not showing you, so it is the one to use on the free tier.</p>
+
+    <p>Deleting Coast removes the app's storage and the rides in it. Two things about that
+    differ on iPhone, and the privacy policy sets them out in full: Apple's <em>Offload
+    App</em> deliberately keeps an app's data, so it does not delete your rides; and if your
+    rides were part of an iCloud or computer backup, restoring that backup can bring them
+    back. Deleting rides inside Coast removes them from the phone, but it cannot reach into a
+    backup that has already been made &mdash; that is managed in your Apple account's backup
+    settings. On Android, Coast switches automatic backup off, so there is no copy off the
+    phone to come back.</p>
+
+    <p>What we cannot do is recover anything for you. Nothing is on a server of ours, so if
+    you lose the phone or wipe it, we have nothing to restore from. Export anything you want
+    to keep first &mdash; export lives in the developer section of Settings, revealed by
+    tapping the version row seven times, and hands your raw ride CSVs to your phone's share
+    sheet.</p>
+
+    <p>What the app does send, and to whom, is set out in full in the
+    <a href="https://jeetkapiljain5-max.github.io/coast-privacy-policy/">privacy policy</a>.</p>
+
+    <hr>
+
+    <h2>Using Coast properly</h2>
+
+    <ul>
+      <li><strong>Ride legally.</strong> Do not use Coast in any way that breaks the law
+      where you are, or that encourages anyone else to.</li>
+      <li><strong>Coast is licensed to you personally.</strong> You may use it on devices
+      you own or control, under the rules your store account carries. You may not sell it,
+      rent it out, or pass it on apart from that account.</li>
+      <li><strong>Do not use Coast to judge anybody else.</strong> It is built to show one
+      rider their own riding. It is not built to monitor, rate, discipline, or price
+      anyone — not employees, not learner drivers, not family, not for insurance. It is not
+      accurate enough for that, and it was never designed for it.</li>
+      <li><strong>Do not record someone else's ride without telling them.</strong></li>
+      <li><strong>Do not try to unlock Coast Pro without paying for it</strong>, fake a
+      purchase, or defeat the paywall. A code we gave you is fine; that is us unlocking
+      it.</li>
+      <li><strong>Do not decompile, tamper with, or repackage the app</strong>, except where
+      the law where you live expressly allows it.</li>
+      <li>Coast's code, design, and name are ours. Map data is © OpenStreetMap contributors,
+      map tiles are © CARTO, and Coast uses the Inter typeface under the SIL Open Font
+      License.</li>
+    </ul>
+
+    <hr>
+
+    <h2>What we do not promise</h2>
+
+    <p>Coast is a small app made by one person, and we would rather say this plainly than
+    let you find it out:</p>
+    <ul>
+      <li><strong>No uptime and no support guarantee.</strong> We read the email address at
+      the bottom of this page and we do reply, but we cannot promise a reply within any
+      particular time, or a fix for any particular problem.</li>
+      <li><strong>The map depends on someone else.</strong> Tiles come from CARTO's servers.
+      If that service changes or goes away, the map can stop drawing, and we do not control
+      it.</li>
+      <li><strong>Purchase status depends on the store being reachable.</strong> Coast will
+      not revoke Coast Pro because one network call failed, but a fresh install with no
+      connection may not see your purchase until it can check.</li>
+      <li><strong>Features can change.</strong> We may add, change, or remove parts of
+      Coast, including parts of Coast Pro, in later versions. If we ever remove something you
+      paid for and you are unhappy about it, tell us, and take a refund up with your
+      store.</li>
+      <li><strong>Coast is provided as it is</strong>, with whatever faults it has. We do not
+      warrant that it is free of bugs, that it will run on every phone, or that any score it
+      produces is correct.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Where you stand legally</h2>
+
+    <p>These terms are between you and us, the developer of Coast. They are not an agreement
+    with Apple or with Google. The store you installed from handles payment, billing, and
+    refunds; support for the app itself is us, at the address below, and not the store.
+    Apple is a third party beneficiary of these terms for the iPhone version and may enforce
+    them.</p>
+
+    <p>To the fullest extent the law where you live allows, we are not liable for loss or
+    damage arising out of your use of Coast — including collisions, injury, fines, damage to
+    a vehicle or a phone, ride data you lose, or decisions you made because of something a
+    score told you. Where we are liable, our total liability will not exceed what you paid
+    for Coast Pro in the twelve months before the claim.</p>
+
+    <p>None of that takes away rights you have and cannot give up. Consumer law in many
+    countries gives you protections that a document like this cannot remove, and nothing
+    here excludes our liability for death or personal injury caused by our negligence, or
+    for fraud. Where something in these terms conflicts with a right you cannot waive, that
+    right wins and the rest of these terms still stands.</p>
+
+    <hr>
+
+    <h2>Age</h2>
+
+    <p>You need to be old enough to hold the store account you buy through, and old enough —
+    and licensed, where a licence is required — to legally ride or drive whatever you are
+    recording. Coast is not directed at children under 13.</p>
+
+    <hr>
+
+    <h2>Changes to these terms</h2>
+
+    <p>If Coast changes in a way that makes something here untrue, these terms will be
+    updated and the "Last updated" date at the top will change. Material changes will be
+    noted in the app release notes. Continuing to use Coast after an update means you accept
+    the revised terms.</p>
+
+    <hr>
+
+    <h2>Contact</h2>
+    <div class="contact">
+      <p style="margin-bottom:0.25rem;">Questions about these terms, or about anything in Coast:</p>
+      <a class="email" href="mailto:jeetkapiljain5@gmail.com">jeetkapiljain5@gmail.com</a>
+    </div>
+
+  </main>
+
+  <footer>
+    Coast — ride coaching for scooters and cars.
+  </footer>
+
+</div>
+</body>
+</html>
