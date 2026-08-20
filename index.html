@@ -240,7 +240,7 @@
   <header>
     <span class="eyebrow">Coast</span>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 19 August 2026</p>
+    <p class="updated">Last updated: 20 August 2026</p>
   </header>
 
   <main>
@@ -275,29 +275,49 @@
     <ul>
       <li>Recording only happens <strong>during a ride you explicitly started</strong>. It
       begins when you start a ride and stops when you stop it.</li>
-      <li>Outside a ride, Coast takes a location reading <strong>when the app starts and when
-      you open the Ride screen</strong>, purely to centre the map where you are — first
-      whatever position your phone already has cached, then a fresh fix. Those readings are
-      not recorded or stored, and they are only taken if you have already granted location
-      permission. Opening the app never triggers a permission prompt on its own.</li>
-      <li>Coast is <strong>foreground only</strong>. It never asks for background or
+      <li>Outside a ride, Coast takes a location reading <strong>when the app starts</strong>,
+      and that is the only time. It takes whatever position your phone already has cached, and
+      then asks the phone for one fresh fix as well. Both are purely to centre the map where
+      you are, and both happen at launch: the Ride screen is built while the app is still
+      starting up and then stays alive, so moving between tabs afterwards does not take another
+      reading. Those readings are not recorded or stored, and they are only taken if you have
+      already granted location permission. Opening the app never triggers a permission prompt on
+      its own.</li>
+      <li><strong>Recording is foreground only.</strong> Coast never asks for background or
       &ldquo;Always&rdquo; location: on Android it does not declare the background location
       permission, and on iPhone it asks only for &ldquo;While Using the App&rdquo;. If Coast
-      leaves the foreground, the ride stops recording and tells you that it did.</li>
+      leaves the foreground, the ride stops recording, and tells you that it did if you have
+      Coast's notifications turned on. The one
+      exception is that the system can briefly wake Coast in the background when a notification
+      is delivered to it, and that path carries no location and no ride data &mdash; it is
+      described under OneSignal below.</li>
       <li>Location data is written straight to local storage on your device.</li>
     </ul>
 
     <h3>Motion sensors</h3>
-    <p>During a ride, Coast also reads your phone's motion sensors (accelerometer and
-    gyroscope) to understand how the ride is going — acceleration, braking, cornering, and
-    similar. Same rules as location: only during a ride, only stored on the device.</p>
+    <p>During a ride, Coast reads your phone's motion sensors (accelerometer and gyroscope)
+    to work out how hard you braked and how hard you pulled away. Those two are the only
+    things it scores. It recognises cornering in order to throw it out &mdash; a hard corner
+    shakes the phone much the way a hard brake does, and Coast has to tell them apart so a
+    corner is not counted as a brake. There is no cornering score and no cornering figure
+    anywhere in the app. Same rules as location: recorded only during a ride, and stored on
+    the device and nowhere else.</p>
+    <p>One reading happens outside a ride, so we would rather name it than let &ldquo;only
+    during a ride&rdquo; cover it. Coast reads the <strong>accelerometer and the
+    magnetometer</strong> — the compass sensor — whenever the app is open, ride or no ride, to
+    work out which way the phone is pointing and turn the compass arrow on the map. Those
+    readings are used for the arrow as they arrive and are never written down and never sent
+    anywhere.</p>
 
     <h3>What Coast does not collect</h3>
     <ul class="nope">
       <li>No name, no email address, no phone number.</li>
       <li>No account, no password, no sign-in of any kind.</li>
       <li>No contacts, photos, microphone, or camera access.</li>
-      <li>No advertising SDKs.</li>
+      <li>No advertising SDKs, and nothing about you is sold or handed to anyone else to
+      advertise with. Coast does use the labels described under OneSignal below to decide which
+      of its own messages to send you — that is our marketing of Coast to people who already use
+      Coast, and it is set out in full in that section.</li>
       <li>No tracking of you across other apps or websites.</li>
     </ul>
 
@@ -312,6 +332,19 @@
     </ul>
     <p>That storage is sandboxed — other apps on your phone cannot read it — and Coast never
     uploads it. There is no server of ours holding a copy.</p>
+
+    <h3>The map tile cache, which is a third thing on your phone</h3>
+    <p>Coast keeps the map tile images it has already downloaded, and for 30 days it draws a
+    revisited area from that copy instead of asking CARTO for it again. That is what makes a
+    road you have already ridden appear instantly, and appear at all with no connection.</p>
+    <p>These are pictures of the map, not your ride data — no route, no speed, no sensor
+    readings. But they do imply which areas you have looked at, so we would rather list them
+    here than leave them out. They sit in the app's own cache storage, separate from your
+    rides, which means your phone may clear them by itself to reclaim space.</p>
+    <p>Deleting a ride does not clear them, and neither does <strong>Delete all rides</strong>
+    &mdash; those reach your rides, not the map. Deleting Coast does, and on Android so does
+    clearing the app's cache under <strong>Settings &rarr; Apps &rarr; Coast &rarr;
+    Storage</strong>.</p>
 
     <h3>Backups: this part genuinely differs by phone</h3>
     <p><strong>On Android</strong>, Coast switches automatic backup off. Many apps let Android
@@ -337,6 +370,10 @@
     <p>This is entirely user-initiated. Nothing is shared unless you tap export and then
     choose a destination. Once you share a file with another app or service, that data is in
     their hands and this policy no longer covers it — their privacy policy does.</p>
+    <p>The export hands over every raw log still on the phone, and that can include a log an
+    older version of Coast left behind with no matching ride in History. Coast counts those and
+    tells you how many there were when it shares. If you want them gone rather than exported,
+    <strong>Settings &rarr; Delete all rides</strong> sweeps the whole folder.</p>
 
     <hr>
 
@@ -349,11 +386,12 @@
     typically your device model, its operating system version, the app and kit version, your
     language and your time zone. Every internet request also carries your device's IP address,
     from which a service can work out roughly what country you are in. We do not choose to send
-    any of that, and we cannot switch it off; it comes with using their service at all. We
-    require each of these companies to protect what they receive to at least the standard
-    described in this policy, and to use it only to provide their service to Coast.
-    <strong>None of them receives your routes, your ride history, or your raw sensor
-    data.</strong> Their own privacy policies are linked in each section.</p>
+    any of that, and we cannot switch it off; it comes with using their service at all. What
+    each company then does with what it receives is governed by its own privacy policy, linked
+    in that service's section below &mdash; we are not going to promise you things about the
+    inside of somebody else's systems. What we can be exact about is what leaves Coast, and
+    that is what these sections set out. <strong>None of them receives your routes, your ride
+    history, or your raw sensor data.</strong></p>
 
     <div class="service">
       <h3>RevenueCat — purchases and subscriptions</h3>
@@ -381,28 +419,48 @@
     </div>
 
     <div class="service">
-      <h3>OneSignal — push notifications</h3>
-      <span class="gets">receives: push token + subscription ID + five profile labels + ride and purchase events + device metadata</span>
+      <h3>OneSignal — push notifications and in-app messages</h3>
+      <span class="gets">receives: push token + subscription ID + five profile labels + four ride and purchase events + device metadata</span>
       <p>If — and only if — you accept the notification opt-in, Coast uses OneSignal to deliver
-      push notifications. Until you accept it, OneSignal is held behind a consent gate and
-      collects nothing at all.</p>
+      push notifications and the occasional <strong>in-app message</strong> — a message shown
+      inside Coast rather than in your notification tray, sometimes with a button that takes you
+      to Trends or History. Until you accept, OneSignal is held behind a consent gate: Coast
+      sets the kit's &ldquo;no consent yet&rdquo; switch before it starts the kit at all, and
+      every single thing listed below is sent only once you have agreed. Nothing Coast chooses
+      to send goes before that point.</p>
       <p>Once you accept, OneSignal receives a <strong>device push token</strong>, an
-      <strong>anonymous subscription ID</strong>, and five labels used to make messages
-      relevant:</p>
+      <strong>anonymous subscription ID</strong>, and five labels describing how your riding is
+      going. We use those labels to decide which messages you are sent and what they say —
+      including messages encouraging you to go for another ride, and messages about Coast Pro.
+      That is marketing, and we would rather call it that: it is our own messaging about our own
+      app, sent to people already using Coast. Nothing here is shared with another company, and
+      nothing about you is used to advertise anything other than Coast.</p>
+      <p>The five labels are:</p>
       <ul>
         <li>your <strong>most recent ride score</strong></li>
         <li>your <strong>total number of rides</strong></li>
         <li><strong>how many of those rides could be scored</strong> — a very short or poorly
         tracked ride cannot be</li>
-        <li><strong>which direction your scores are moving</strong> — improving, steady or
-        slipping</li>
+        <li><strong>which direction your scores are moving</strong> — improving, steady,
+        slipping, or not yet known, which is what it says until you have five scored rides
+        behind you</li>
         <li><strong>which vehicle type</strong> you selected</li>
       </ul>
-      <p>Coast also reports a short list of <strong>events</strong> to OneSignal, so it can
-      tell whether a message actually led to anything rather than only that it was
-      delivered: that you recorded a ride, that you opened the Trends screen, and that you
-      bought Coast Pro. Two of them carry a number as well &mdash; the score of the ride you
-      just finished, and the price you paid.</p>
+      <p>Which in-app message you are eligible to see is worked out on the phone itself, from
+      the same ride figures as the labels above. Coast sets those values locally and sends
+      nothing extra to do it.</p>
+      <p>Coast also reports four <strong>events</strong> to OneSignal, so we can measure whether
+      a message actually led to anything rather than only that it was delivered. This is
+      analytics on our own messaging:</p>
+      <ul>
+        <li>that you <strong>recorded a ride</strong></li>
+        <li>the <strong>score of that ride</strong> &mdash; but only when the ride was long
+        enough and well enough tracked to be scored at all</li>
+        <li>that you <strong>opened the Trends screen</strong> &mdash; counted once per message
+        rather than once per open, so checking Trends every day does not keep re-crediting the
+        same notification</li>
+        <li>that you <strong>bought Coast Pro</strong>, with the price you paid</li>
+      </ul>
       <p>Each label is a single number or word, and each event is a name plus at most one
       number. Alongside them the kit sends the device and app metadata described at the start
       of &ldquo;Services Coast connects to&rdquo; — device model, operating system version, app
@@ -411,11 +469,16 @@
       raw sensor data.</p>
       <p>If you decline, or turn Coast's notifications off later in your system settings, none
       of this applies to you and nothing is sent — Coast checks that permission and withdraws
-      consent when it sees you have turned it off. Coast deliberately has no in-app
-      notification switch: your phone's own notification settings are the single place that
-      controls this. On Android that is <strong>Settings &rarr; Apps &rarr; Coast &rarr;
+      consent when it sees you have turned it off. Withdrawing consent stops both halves: the
+      push notifications and the in-app messages. Coast deliberately has no in-app notification
+      switch: your phone's own notification settings are the single place that controls all of
+      it. On Android that is <strong>Settings &rarr; Apps &rarr; Coast &rarr;
       Notifications</strong>; on iPhone, <strong>Settings &rarr; Notifications &rarr;
       Coast</strong>.</p>
+      <p>On iPhone, accepting notifications also lets the system briefly wake Coast in the
+      background so a delivered message can be processed. That is the only background wake Coast
+      declares, it exists for messages and nothing else, and no location or ride data travels
+      with it.</p>
       <p>One detail worth being precise about, because it is easy to assume otherwise. On
       Android you will also see separate channels for Coast's own on-device alerts — the ride
       score, and the notice that a ride stopped recording — and you can silence one while
@@ -443,8 +506,21 @@
       <strong>the approximate area you are looking at</strong> and <strong>your IP
       address</strong> to the tile server.</p>
       <p>This is a normal consequence of loading map images from the internet, and it is the one
-      place where something location-adjacent leaves your phone. It is the map view you are
-      looking at, not your recorded ride track — your actual GPS log is never sent to them.</p>
+      place where something location-adjacent leaves your phone.</p>
+      <p>One of those requests happens before you have looked at anything. While the opening
+      screen is still up, Coast takes your phone's last known position and draws a map at it
+      off-screen and invisible, purely so the tiles are already in the cache and the Ride tab
+      opens on a drawn map instead of a grey one. That happens on every launch, whether or not
+      you go on to look at a map at all &mdash; so CARTO is asked for tiles around where you are
+      each time you open Coast. It is the same kind of request as any other tile request, for
+      pictures of the map, and nothing about your ride goes with it.</p>
+      <p>It is worth being blunt about what that means during a ride, because &ldquo;the map
+      view, not your ride track&rdquo; is true but easy to read as more comforting than it is.
+      While you are recording, the map follows you. So the areas Coast asks CARTO for over the
+      course of a ride do broadly follow where you went, at the coarse resolution of a map tile.
+      What is never sent is the ride itself — the precise GPS track and the raw sensor file stay
+      on your phone. And once an area has been loaded, Coast draws it from the on-device tile
+      cache for the next 30 days instead of asking again.</p>
       <p>Map data is © OpenStreetMap contributors; tiles are © CARTO.</p>
     </div>
 
@@ -454,7 +530,8 @@
     <p>Coast keeps your rides on your device until you delete them. There is no expiry and no
     cleanup on our side, because there is no our side — we do not hold a copy.</p>
     <p><strong>Deleting Coast removes the app's storage and every ride in it</strong>,
-    including the local database and every CSV file. Two things are worth knowing on iPhone:
+    including the local database, every CSV file, and the map tile cache. Two things are worth
+    knowing on iPhone:
     <em>Offload App</em> deliberately keeps an app's data, so it does not delete your rides;
     and if your rides were part of an iCloud or computer backup, restoring that backup can
     bring them back. Deleting rides inside the app removes them from the phone, but it cannot
@@ -469,8 +546,10 @@
     <p>Because your data is on your device and not on a server, you do not need to ask anyone's
     permission to control it:</p>
     <ul>
-      <li><strong>Access it</strong> &mdash; open the app to view your rides, or export the
-      raw CSV files from the developer section in Settings.</li>
+      <li><strong>Access it</strong> &mdash; open the app to view your rides. On the free tier
+      History shows your three most recent, so the complete answer is the raw CSV export in the
+      developer section in Settings: it is not limited by tier and it covers every ride log on
+      the phone.</li>
       <li><strong>Delete it</strong> &mdash; open a ride from History and use
       <strong>Delete this ride</strong> to remove it and its raw sensor log. On the free
       tier History shows your three most recent rides, so use <strong>Settings &rarr;
