@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Coast</title>
+<meta name="description" content="Coast records your rides on your phone. There is no Coast account and no server of ours. The full privacy policy for the Coast ride coaching app.">
+<meta name="color-scheme" content="dark">
+<style>
+  :root {
+    --bg: #0F1922;
+    --surface: #16232E;
+    --surface-2: #1B2B38;
+    --line: #24384A;
+    --text: #FFFFFF;
+    --muted: #A7BACB;
+    --accent: #22D3EE;
+    --accent-dim: rgba(34, 211, 238, 0.12);
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+            "Apple Color Emoji", "Segoe UI Emoji";
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+            "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  header {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-radius: 999px;
+    padding: 0.3rem 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+  }
+
+  .updated {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 4vw, 1.6rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+    margin: 3.5rem 0 1rem;
+    padding-top: 0.25rem;
+  }
+
+  h3 {
+    font-size: 1.075rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    margin: 2.25rem 0 0.6rem;
+    color: var(--accent);
+  }
+
+  p { margin: 0 0 1.15rem; }
+
+  ul {
+    margin: 0 0 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  li {
+    margin-bottom: 0.55rem;
+    padding-left: 0.2rem;
+  }
+
+  li::marker { color: var(--accent); }
+
+  strong { font-weight: 600; }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(34, 211, 238, 0.35);
+    overflow-wrap: anywhere;
+  }
+
+  a:hover,
+  a:focus-visible {
+    border-bottom-color: var(--accent);
+    background: var(--accent-dim);
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 3.5rem 0 0;
+  }
+
+  .lead {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 1.75rem 1.75rem 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .lead .headline {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1.1rem;
+  }
+
+  .lead p:last-child { margin-bottom: 1.15rem; }
+
+  .nope {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+  }
+
+  .nope li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: var(--muted);
+  }
+
+  .nope li::before {
+    content: "×";
+    position: absolute;
+    left: 0.35rem;
+    top: -0.05rem;
+    color: var(--accent);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .service {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.35rem 1.5rem 0.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .service h3 {
+    margin-top: 0;
+  }
+
+  .service .gets {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.15rem 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .contact {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+
+  .email {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px dashed rgba(34, 211, 238, 0.5);
+    border-radius: 8px;
+    padding: 0.6rem 1.1rem;
+    margin-top: 0.5rem;
+    overflow-wrap: anywhere;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .wrap { padding: 2.5rem 1.15rem 4rem; }
+    .lead, .service, .contact { padding-left: 1.15rem; padding-right: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+  <main>
+
+    <h1>Coast — Support</h1>
+    <p class="updated">Last updated: 20 August 2026</p>
+
+    <p>Coast scores how smoothly you ride. It records a ride on your phone, looks at
+    how hard you braked and pulled away, and gives the ride a score out of 100 with
+    coaching on what to change.</p>
+
+    <h2>Contact</h2>
+    <p>Email <a href="mailto:jeetkapiljain5@gmail.com">jeetkapiljain5@gmail.com</a>.
+    Coast is made by one person, so replies are not instant — but every email is read.
+    Telling us your phone model and what you were doing when something went wrong
+    saves a round trip.</p>
+
+    <h2>Recording only runs while Coast is open</h2>
+    <p>This is the question we get most, and it is deliberate rather than a bug.
+    Coast does not record in the background. If you leave the app mid-ride it stops
+    the ride, saves what you rode up to that point, and posts a notification telling
+    you it did. Nothing is lost, but nothing is recorded after that either.</p>
+    <p>To ride with the screen off, use <strong>Pocket Mode</strong> — the button below
+    Stop Ride. It keeps Coast running with the screen dark.</p>
+
+    <h2>Restoring a purchase</h2>
+    <p>Open <strong>Settings</strong> in Coast and tap <strong>Restore purchase</strong>.
+    That re-checks the store for a purchase already tied to your account, which is what
+    you want on a new phone or after a reinstall.</p>
+    <p>If you are already Coast Pro the button is hidden, because there is nothing left
+    to restore.</p>
+
+    <h2>Managing or cancelling a subscription</h2>
+    <p>Coast cannot cancel a subscription for you — only the store can. On iPhone, open
+    <strong>Settings &rsaquo; your name &rsaquo; Subscriptions</strong>, or tap
+    <strong>Manage subscription</strong> in Coast's Settings. On Android, use
+    <strong>Google Play &rsaquo; Subscriptions</strong>.</p>
+    <p>A lifetime purchase never renews and there is nothing to cancel.</p>
+
+    <h2>Your ride history does not survive a reinstall</h2>
+    <p>Rides are stored only on your phone. On Android, Coast switches automatic backup
+    off on purpose so your rides are never copied to Google Drive — which also means
+    uninstalling deletes them. Export anything you want to keep first, from Settings.</p>
+    <p>On iPhone, Apple includes Coast's folder in your device backup, so with iCloud
+    Backup on your rides are part of that backup. See the
+    <a href="./">privacy policy</a> for the detail, including how to exclude Coast.</p>
+
+    <h2>A score looked wrong</h2>
+    <p>Coast judges a scooter and a car against different thresholds, because a car
+    brakes far more gently than a two-wheeler. Coast asks which you are riding at the
+    start of every ride — if you answer with the wrong one, the ride is scored against
+    the wrong bar. There is no way to re-score a saved ride.</p>
+    <p>If a ride shows a dash instead of a score, Coast did not see enough of it to
+    judge fairly — usually a very short ride, or one with a poor GPS fix.</p>
+
+    <h2>Also</h2>
+    <p><a href="./">Privacy policy</a> &middot; <a href="./terms.html">Terms of Use</a></p>
+
+  </main>
+</body>
+</html>
