@@ -457,8 +457,9 @@
       every single thing listed below is sent only once you have agreed. Nothing Coast chooses
       to send goes before that point.</p>
       <p>Two prompts can look alike here, so: your phone's own notification permission is not
-      that consent. Coast asks the phone for that permission when you start a ride, if it has
-      not already been granted, because the alert that a ride stopped recording depends on it.
+      that consent. Coast asks the phone for that permission the moment you accept the opt-in,
+      and again when you start a ride if it has not already been granted, because the alert
+      that a ride stopped recording depends on it.
       Granting it lets Coast post its own on-device alerts, described further down; it does not
       switch OneSignal on. OneSignal is switched on only by the opt-in itself, and on later
       launches only if you had accepted it before and the permission is still on.</p>
@@ -504,8 +505,10 @@
       <p>In the other direction, a push notification or in-app message can carry a one-word
       hint telling Coast which screen to open when you tap it &mdash; Trends or History &mdash;
       and nothing else is read from it. While a ride is recording, in-app messages are held
-      back and a push that arrives while Coast is in front is not shown; both wait until the
-      ride ends.</p>
+      back and shown once the ride ends. A push that arrives while Coast is in front mid-ride
+      is dropped rather than shown &mdash; the phone gives an app only moments to display a
+      push, so it cannot be held for the length of a ride. A message you tap mid-ride is
+      remembered, and the screen it points to opens once the ride ends.</p>
       <p>If you decline, or turn Coast's notifications off later in your system settings, none
       of this applies to you and nothing is sent — Coast checks that permission and withdraws
       consent when it sees you have turned it off. Withdrawing consent stops both halves: the
