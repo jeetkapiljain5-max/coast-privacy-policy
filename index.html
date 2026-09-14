@@ -306,8 +306,7 @@
       processor awake so that recording carries on with the phone locked. Coast does not
       request Android's background location permission, and the service starts only when you
       tap Start in Coast. Android's notification settings list this notice under a channel
-      called &ldquo;Background Location&rdquo;: that name comes from the location library
-      Coast is built with, and the channel holds only this recording notice.</li>
+      called &ldquo;Ride recording&rdquo;, which holds only this recording notice.</li>
       <li><strong>On iPhone</strong>, Coast asks only for &ldquo;While Using the App&rdquo;
       permission. A ride you start carries on with the phone locked because Coast uses iOS's
       background location mode for it, and iOS shows its location indicator while that is
@@ -391,9 +390,8 @@
     <p>Coast keeps a handful of preferences in the app's private settings store: your unit
     choice, the vehicle you last rode, the map style (light or dark), the display theme,
     whether you have finished the first-run setup, whether the notification opt-in has been
-    offered and whether you accepted it, whether a code has unlocked Coast Pro, and whether
-    Keep maps offline is switched on. Each is a single word or a yes/no. They are never sent
-    to us. If you turn notifications on, the vehicle you ride is one of the labels sent to
+    offered and whether you accepted or declined it, and, on Android, whether a code has
+    unlocked Coast Pro. Each is a single word or a yes/no. They are never sent to us. If you turn notifications on, the vehicle you ride is one of the labels sent to
     OneSignal, as described below, and on iPhone these settings are part of your device
     backup. The RevenueCat and OneSignal kits described below also keep their own
     identifiers and status in the app's storage on the phone, and on Android, once you have
@@ -407,18 +405,19 @@
     <ul>
       <li><strong>The standard map</strong>, which is what you normally see, keeps the map
       data it has downloaded &mdash; road shapes, names and the like &mdash; up to about 64
-      MB. Anything older than seven days is fetched again the next time it is needed.</li>
+      MB. It has no age limit: its oldest data is deleted only when that size is reached. A
+      copy older than seven days is still shown, and fetched again in the background the
+      next time it is needed.</li>
       <li><strong>A fallback map made of image tiles</strong>, shown while the standard map
-      is still loading, which can happen briefly each time Coast starts, and whenever the
-      standard map cannot load. It keeps tiles for 30 days, up to about 120 MB, deleting the
-      oldest first, and if a refresh fails it shows the older copy rather than a blank
-      square. With Coast Pro's <strong>Keep maps offline</strong> switched on, this store
-      keeps tiles for up to ten years and up to about 400 MB. The storage figure and the
-      <strong>Clear stored map</strong> button in Settings refer to this store.</li>
+      is still loading, which can happen briefly when Coast starts, and whenever the
+      standard map cannot load. It keeps tiles for at most 30 days and up to about 120 MB,
+      deleting the oldest first. A tile older than 30 days is deleted rather than shown, so
+      if a fresh copy cannot be fetched, that part of the map stays blank.</li>
     </ul>
 
     <p>Neither store downloads areas in advance. Each holds only map data Coast has already
-    fetched to draw a map.</p>
+    fetched to draw a map. <strong>Map cache</strong> in Settings shows how much the two
+    hold together.</p>
 
     <p>This is map data, not your ride data &mdash; no route, no speed, no sensor readings.
     But it does imply which areas you have looked at, so we would rather list it here than
@@ -426,8 +425,8 @@
     rides, and the phone does not empty them by itself.</p>
 
     <p>Deleting a ride does not clear them, and neither does <strong>Delete All
-    Rides</strong>. <strong>Clear stored map</strong> clears the fallback store. Deleting
-    Coast clears both. On Android, <strong>Clear cache</strong> under <strong>Settings
+    Rides</strong>. <strong>Clear map cache</strong> in Settings clears both, and so does
+    deleting Coast. On Android, <strong>Clear cache</strong> under <strong>Settings
     &rarr; Apps &rarr; Coast &rarr; Storage</strong> does not reach them; <strong>Clear
     storage</strong> does, and takes your rides and settings with it. On iPhone they are
     part of your device backup in the same way your rides are, which the next section
@@ -548,8 +547,9 @@
     <div class="service">
       <h3>OneSignal &mdash; push notifications and in-app messages</h3>
       <span class="gets">receives: push token + install and subscription IDs + five ride labels + four events + session and message reports + device metadata</span>
-      <p>If &mdash; and only if &mdash; you accept the notification opt-in on Coast's
-      first-run setup, Coast uses OneSignal to deliver push notifications and the occasional
+      <p>If &mdash; and only if &mdash; you accept the notification opt-in, on Coast's
+      first-run setup or later with <strong>Turn On Notifications</strong> in Settings, Coast
+      uses OneSignal to deliver push notifications and the occasional
       <strong>in-app message</strong> &mdash; a message shown inside Coast rather than in
       your notification tray, sometimes with a button that takes you to Trends or History.
       Until you accept, OneSignal is held behind a consent gate: Coast sets the kit's
@@ -559,8 +559,14 @@
       crash reporter, described further down.</p>
       <p>Two prompts can look alike here, so: your phone's own notification permission is
       not that consent. Coast asks the phone for that permission the moment you accept the
-      opt-in, and again when you start a ride if it has not already been granted. Granting
-      it lets Coast post its own on-device notices, described further down; it does not
+      opt-in. It also asks when you start a ride, if the permission has not been granted,
+      unless you have said no to the opt-in: <strong>Not now</strong> on the first-run setup,
+      or refusing the phone's prompt that accepting it raises, is remembered, and after that
+      Coast does not ask at the start of a ride. One exception: if Coast's notification
+      service was not ready or did not answer when you accepted, a refusal of that prompt is
+      not remembered, and Coast asks again when you next start a ride. Granting the
+      permission lets Coast post its
+      own on-device notices, described further down; it does not
       switch OneSignal on. OneSignal is switched on only by the opt-in itself, and on later
       launches only if you had accepted it before and the permission is still on.</p>
       <p>Once you accept, OneSignal receives a <strong>device push token</strong>, an
@@ -627,8 +633,10 @@
       none of this applies to you and nothing is sent &mdash; Coast checks that permission
       and withdraws consent when it sees you have turned it off. Withdrawing consent stops
       both halves: the push notifications and the in-app messages. Coast deliberately has no
-      in-app notification switch: your phone's own notification settings are the single
-      place that controls all of it. On Android that is <strong>Settings &rarr; Apps &rarr;
+      in-app switch to turn notifications off: your phone's own notification settings are
+      the place that controls all of it. While notifications are off, or you have not
+      accepted the opt-in, Settings in Coast shows a <strong>Turn On Notifications</strong>
+      button, which asks the same way the first-run setup does. On Android that is <strong>Settings &rarr; Apps &rarr;
       Coast &rarr; Notifications</strong>; on iPhone, <strong>Settings &rarr; Notifications
       &rarr; Coast</strong>.</p>
       <p>On iPhone, accepting notifications also lets the system briefly wake Coast in the
@@ -640,10 +648,9 @@
       separately: <strong>Ride feedback</strong> (your score after a ride),
       <strong>Reminders</strong> (where Coast's OneSignal messages are meant to land; one
       sent without that setting appears under a channel Android lists as
-      <strong>Miscellaneous</strong>), and <strong>Background Location</strong> (the ongoing
-      notice while a ride records, described under Location). You may also see a
-      <strong>Ride stopped</strong> channel, which this version of Coast still creates but
-      no longer posts to. The score note and the recording notice are raised on the phone
+      <strong>Miscellaneous</strong>), and <strong>Ride recording</strong> (the ongoing
+      notice while a ride records, described under Location). The score note and the
+      recording notice are raised on the phone
       itself, with no server involved. The score note is posted only if you accepted the
       opt-in, and only after a ride good enough or rough enough to be worth a word. Muting a
       channel changes what Coast shows you; it does not withdraw consent, because the
@@ -671,12 +678,14 @@
     </div>
 
     <div class="service">
-      <h3>CARTO and OpenStreetMap &mdash; map data</h3>
+      <h3>OpenFreeMap, CARTO and Esri &mdash; map data</h3>
       <span class="gets">receives: approximate map area + IP address</span>
-      <p>The map you see is built from OpenStreetMap data served by CARTO. The standard map
-      requests map data, fonts and icons from CARTO's servers. The fallback map requests
-      image tiles, and those requests also carry Coast's own CARTO access key, which
-      identifies our account with CARTO rather than you, and name the app as the requester.
+      <p>The map you see is built from OpenStreetMap data. The standard map requests its map
+      data from OpenFreeMap's servers. Its look is Coast's
+      own, adapted from CARTO's map styles and built into the app, so drawing it sends
+      nothing to CARTO. The fallback map requests image tiles from CARTO, and those requests
+      also carry Coast's own CARTO access key, which identifies our account with CARTO
+      rather than you, and name the app as the requester.
       If a build of Coast has no CARTO access key, the fallback map comes from Esri's World
       Gray Canvas service instead, with the same kind of request. Like any app that shows a
       map, all of these requests necessarily reveal <strong>the approximate area being
@@ -688,8 +697,9 @@
       your phone's last known position and draws a map at it off-screen, purely so the map
       data is already on the phone and the Ride tab opens on a drawn map instead of a grey
       one. That happens on every launch, so the map server is asked for the area around you
-      each time you open Coast, unless that area is already stored. It is the same kind of
-      request as any other, for map data, and nothing about your ride goes with it.</p>
+      each time you open Coast, unless that area is already stored and recent enough not to
+      need refreshing. It is the same kind of request as any other, for map data, and
+      nothing about your ride goes with it.</p>
       <p>It is worth being blunt about what that means during a ride, because &ldquo;the map
       view, not your ride track&rdquo; is true but easy to read as more comforting than it
       is. While Coast is on screen during a ride, the map moves with you. So the areas
@@ -698,9 +708,14 @@
       GPS track and the raw sensor file stay on your phone. Opening a saved ride draws its
       route on a map as well, so data for that area is requested if it is not already
       stored. Once an area has been loaded, Coast draws it from the map stores described
-      above instead of asking again, until the stored copy expires.</p>
-      <p>Map data is © OpenStreetMap contributors; tiles are © CARTO.</p>
-      <p>Privacy policies: CARTO <a href="https://carto.com/privacy" target="_blank"
+      above, and asks the map server again only once the stored copy has passed the age set
+      out there.</p>
+      <p>Map data is © OpenStreetMap contributors. The standard map's tiles come from
+      OpenFreeMap, in the OpenMapTiles schema, and its style is adapted from CARTO's; the
+      fallback map's tiles are © CARTO, or © Esri.</p>
+      <p>Privacy policies: OpenFreeMap <a href="https://openfreemap.org/privacy/"
+      target="_blank" rel="noopener noreferrer">openfreemap.org/privacy</a>, CARTO <a
+      href="https://carto.com/privacy" target="_blank"
       rel="noopener noreferrer">carto.com/privacy</a>, Esri <a
       href="https://www.esri.com/en-us/privacy/privacy-statements/privacy-statement"
       target="_blank" rel="noopener
@@ -717,8 +732,9 @@
       is no our side.</li>
       <li><strong>A raw log left by a ride that was never ended with Stop</strong> stays
       until you use <strong>Delete All Rides</strong> or delete Coast.</li>
-      <li><strong>The map stores</strong> keep data for the periods and up to the sizes set
-      out under &ldquo;The map stores&rdquo;, or until you clear them or delete Coast.</li>
+      <li><strong>The map stores</strong> keep data up to the sizes, and for the fallback map
+      the age, set out under &ldquo;The map stores&rdquo;, or until you clear them or delete
+      Coast.</li>
       <li><strong>Your settings</strong> stay until you delete Coast.</li>
     </ul>
 
@@ -772,8 +788,8 @@
       <strong>Delete this ride</strong> to remove it and its raw sensor log. On the free
       tier History shows your three most recent rides, so use <strong>Settings &rarr; Delete
       All Rides</strong> to erase every ride and log at once, whether or not you can open
-      them individually. <strong>Clear stored map</strong> in Settings clears the fallback
-      map store. Deleting the app removes everything it holds.</li>
+      them individually. <strong>Clear map cache</strong> in Settings clears both map
+      stores. Deleting the app removes everything it holds.</li>
       <li><strong>Stop collection</strong> &mdash; tap Stop to end a ride, do not start one,
       or revoke the location permission in your phone's settings (Android: <strong>Settings
       &rarr; Apps &rarr; Coast &rarr; Permissions</strong>; iPhone: <strong>Settings &rarr;
@@ -811,8 +827,9 @@
 
     <p>The update of 14 September 2026 describes Coast 1.1. A ride you start now keeps
     recording with the phone locked or another app in front, until you end it; Coast 1.0
-    records a ride only while Coast is open and in front. The policy also now covers the new
-    standard map and its storage, the diagnostic logs sent by Google's billing library on
+    records a ride only while Coast is open and in front. The policy also now covers the
+    standard map and OpenFreeMap, which serves its data, the limits on both map stores, the
+    diagnostic logs sent by Google's billing library on
     Android, push registration with Firebase on Android, OneSignal's session and message
     reports, RevenueCat's use of Google's Block Store, security, and who publishes
     Coast.</p>

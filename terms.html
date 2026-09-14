@@ -317,12 +317,6 @@
       instead.</li>
       <li>Replay, which plays a ride back along its route and shows where your speed
       went.</li>
-      <li><strong>Keep maps offline</strong>, a setting that keeps the fallback image-tile
-      map for up to ten years instead of 30 days. Coast shows that map while its standard
-      map is loading or when the standard map cannot load; the setting does not change how
-      long the standard map you normally see is kept. It does not download areas in advance,
-      and it is not a promise that a map will draw with no signal. The privacy policy sets
-      out both map stores.</li>
     </ul>
 
     <p>Nothing is deleted to make you buy &mdash; if you want older rides gone,
@@ -505,8 +499,9 @@
     handled by Apple under Apple's terms. On Android, we sometimes hand out a code that
     unlocks Coast Pro without a purchase &mdash; for judges, testers, and reviewers. It is
     entered under <strong>Have a code?</strong> on the purchase screen, and Coast simply
-    remembers on that phone that it was accepted. Such a code unlocks the app on that device
-    only, is not a purchase, and can stop working in a later version.</p>
+    remembers on that phone that it was accepted. Such a code unlocks the app on that Android
+    device only, does nothing on iPhone, is not a purchase, and can stop working in a later
+    version.</p>
 
     <hr>
 
@@ -561,9 +556,10 @@
       Apple, is fine; that is us unlocking it.</li>
       <li><strong>Do not decompile, tamper with, or repackage the app</strong>, except where
       the law where you live expressly allows it.</li>
-      <li>Coast's code, design, and name are ours. Map data is © OpenStreetMap contributors,
-      map tiles are © CARTO, and Coast uses the Inter, Space Grotesk and Space Mono
-      typefaces under the SIL Open Font License.</li>
+      <li>Coast's code, design, and name are ours. Map data is © OpenStreetMap contributors;
+      the map's tiles come from OpenFreeMap, in the OpenMapTiles schema, and its style is
+      adapted from CARTO's; the fallback map's tiles are © CARTO or © Esri. Coast uses the
+      Inter, Space Grotesk and Space Mono typefaces under the SIL Open Font License.</li>
     </ul>
 
     <hr>
@@ -577,10 +573,11 @@
       <li><strong>No uptime and no support guarantee.</strong> We read the email address at
       the bottom of this page and we do reply, but we cannot promise a reply within any
       particular time, or a fix for any particular problem.</li>
-      <li><strong>The map depends on someone else.</strong> Map data comes from CARTO's
-      servers. If that service changes or goes away, the map can stop drawing, and we do not
-      control it. A map with no signal is not guaranteed either: Coast can draw only what it
-      has already stored, and stored map data expires.</li>
+      <li><strong>The map depends on others.</strong> Map data comes from OpenFreeMap's
+      servers, and the fallback map's from CARTO's or Esri's. If those services change or go
+      away, the map can stop drawing, and we do not control them. A map with no signal is not
+      guaranteed either: Coast can draw only what it still has stored, and what it stores is
+      limited in size (and, for the fallback map, in age).</li>
       <li><strong>Recording depends on your phone.</strong> Coast asks the system to keep a
       ride you started recording with the phone locked, but the system, a battery saver, or
       the phone maker's own power management can still stop it, and we cannot prevent
